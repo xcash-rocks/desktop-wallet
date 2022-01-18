@@ -97,7 +97,7 @@ body.datta-dark {
     border: 1px solid lighten($dark-layout, 3%);
   }
 
-  // Added (hardcoded) to prevent local css override bootstrap form validation 
+  // Added (hardcoded) to prevent local css override bootstrap form validation
   .was-validated .form-control:invalid, .form-control.is-invalid {
     border-color: #dc3545;
     padding-right: calc(1.5em + 0.75rem);
@@ -107,7 +107,7 @@ body.datta-dark {
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
   }
 
-  // Added (hardcoded) to prevent local css override bootstrap form validation 
+  // Added (hardcoded) to prevent local css override bootstrap form validation
   .was-validated .form-control:valid, .form-control.is-valid {
     border-color: #28a745;
     padding-right: calc(1.5em + 0.75rem);
@@ -600,12 +600,14 @@ body.datta-dark {
   .nav-tabs {
     .nav-link {
       color: $dark-layout-font;
+      background: lighten($dark-layout, 0%);
+      box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.08);
     }
 
     .nav-item.show .nav-link,
     .nav-link.active {
       color: #fff;
-      background: lighten($dark-layout, 0%);
+      background: lighten($dark-layout, 7%);
       box-shadow: 0 -4px 10px 0 rgba(0, 0, 0, 0.12);
     }
   }
@@ -626,7 +628,6 @@ body.datta-dark {
     }
   }
 
-  .nav-tabs .nav-link,
   .tab-content {
     background: lighten($dark-layout, 7%);
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.08);
