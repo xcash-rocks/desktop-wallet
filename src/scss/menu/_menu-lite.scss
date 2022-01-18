@@ -2150,7 +2150,7 @@ $style-block-width: 400px;
                 $i: index($color-header-name, $value);
 
                 > a {
-                    &[data-value="header-#{$value}"] {
+                    &[data-value="header-#{"" + $value}"] {
                         > span:nth-child(1) {
                             &:after {
                                 background: nth($color-header-color,$i);
@@ -2166,7 +2166,7 @@ $style-block-width: 400px;
                 $i: index($color-menu-name, $value);
 
                 > a {
-                    &[data-value="navbar-#{$value}"] {
+                    &[data-value="navbar-#{"" + $value}"] {
                         > span {
                             &:before {
                                 background: nth($color-menu-color,$i);
@@ -2182,7 +2182,7 @@ $style-block-width: 400px;
                 $i: index($color-header-name, $value);
 
                 > a {
-                    &[data-value="brand-#{$value}"] {
+                    &[data-value="brand-#{"" + $value}"] {
                         > span:nth-child(1) {
                             &:before {
                                 background: nth($color-header-color,$i);
@@ -2201,7 +2201,7 @@ $style-block-width: 400px;
                 $i: index($color-active-name, $value);
 
                 > a {
-                    &[data-value="active-#{$value}"] {
+                    &[data-value="active-#{"" + $value}"] {
                         background: nth($color-active-color,$i);
                     }
                 }
@@ -2216,7 +2216,7 @@ $style-block-width: 400px;
                 $i: index($color-title-name, $value);
 
                 > a {
-                    &[data-value="title-#{$value}"] {
+                    &[data-value="title-#{"" + $value}"] {
                         background: nth($color-title-color,$i);
                     }
                 }
@@ -2616,7 +2616,7 @@ $style-block-width: 400px;
     @each $value in $color-header-name {
         $i: index($color-header-name, $value);
 
-        &.header-#{$value} {
+        &.header-#{"" + $value} {
             background: nth($color-header-color,$i);
             color: rgba(256,256,256,0.8);
 
@@ -2772,8 +2772,8 @@ $style-block-width: 400px;
     @each $value in $color-header-name {
         $i: index($color-header-name, $value);
 
-        &.brand-#{$value} .header-logo,
-        &[class*="navbar-"].brand-#{$value} .header-logo {
+        &.brand-#{"" + $value} .header-logo,
+        &[class*="navbar-"].brand-#{"" + $value} .header-logo {
             background: nth($color-header-color,$i);
             @if($value=="dark"){
                 .b-bg{
@@ -2808,7 +2808,7 @@ $style-block-width: 400px;
     @each $value in $color-menu-name {
         $i: index($color-menu-name, $value);
 
-        &.navbar-#{$value} {
+        &.navbar-#{"" + $value} {
             background: nth($color-menu-color,$i);
 
             .mobile-menu {
@@ -2911,7 +2911,7 @@ $style-block-width: 400px;
                 }
             }
         }
-        &.theme-horizontal.navbar-#{$value} .pcoded-inner-navbar{
+        &.theme-horizontal.navbar-#{"" + $value} .pcoded-inner-navbar{
             app-nav-item > li,
             > app-nav-group > app-nav-collapse > li {
                 &.pcoded-hasmenu {
@@ -2946,7 +2946,7 @@ $style-block-width: 400px;
             }
         }
 
-        &.active-#{$value} {
+        &.active-#{"" + $value} {
             &[class*="menu-item-icon-style"] {
                 .pcoded-inner-navbar li.pcoded-hasmenu .pcoded-submenu li.active > a:before {
                     color: nth($color-active-color,$i);
@@ -3235,7 +3235,7 @@ body.box-layout {
     @each $value in $color-title-name {
         $i: index($color-title-name, $value);
 
-        &.title-#{$value} {
+        &.title-#{"" + $value} {
             .pcoded-inner-navbar .pcoded-menu-caption {
                 color: nth($color-active-color,$i);
             }
@@ -3350,7 +3350,7 @@ body.box-layout {
             $i: index($color-menu-name, $value);
 
             > a {
-                &[data-value="navbar-#{$value}"] {
+                &[data-value="navbar-#{"" + $value}"] {
                     > span {
                         &:before {
                             background: nth($color-menu-color,$i);
@@ -3366,7 +3366,7 @@ body.box-layout {
             $i: index($color-header-name, $value);
 
             > a {
-                &[data-value="header-#{$value}"] {
+                &[data-value="header-#{"" + $value}"] {
                     > span:nth-child(1) {
                         &:after {
                             background: nth($color-header-color,$i);
@@ -3385,7 +3385,7 @@ body.box-layout {
             $i: index($color-active-name, $value);
 
             > a {
-                &[data-value="active-#{$value}"] {
+                &[data-value="active-#{"" + $value}"] {
                     background: nth($color-active-color,$i);
                 }
             }
@@ -3400,7 +3400,7 @@ body.box-layout {
             $i: index($color-title-name, $value);
 
             > a {
-                &[data-value="title-#{$value}"] {
+                &[data-value="title-#{"" + $value}"] {
                     background: nth($color-title-color,$i);
                 }
             }
@@ -3441,7 +3441,7 @@ body.box-layout {
     $i: index($color-menu-name, $value);
 
     .nav-link {
-        &.active.h-#{$value} {
+        &.active.h-#{"" + $value} {
             background: nth($color-menu-color,$i) !important;
         }
     }
@@ -3892,7 +3892,7 @@ body.layout-8 {
     }
     @each $value in $color-active-name {
       $i: index($color-active-name, $value);
-      &.active-#{$value} {
+      &.active-#{"" + $value} {
         .pcoded-inner-navbar {
           > app-nav-group > app-nav-collapse > li {
             &.active,
