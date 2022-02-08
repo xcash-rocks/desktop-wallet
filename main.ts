@@ -7,6 +7,13 @@ import * as fs from 'fs';
 import * as crypto from "crypto";
 import * as setupEvents from './installers/setupEvents'
 
+const electronReload = require('electron-reload')
+
+try {
+	require('electron-reloader')(module);
+} catch {}
+
+
 let mainWindow: Electron.BrowserWindow;
 
 function createWindow() {
@@ -95,10 +102,10 @@ function createWindow() {
   }
 
   // Create the browser window.
-  mainWindow = new BrowserWindow({ webPreferences: {nodeIntegration: true}, icon: path.join(__dirname, '/src/favicon.ico') });
+  mainWindow = new BrowserWindow({width: 800, height: 800, webPreferences: {nodeIntegration: true}, icon: path.join(__dirname, '/src/assets/images/xcash-logo-rounded.png') });
 
   // make the window full screen
-  mainWindow.maximize();
+  //mainWindow.maximize();
 
   // create and set the user agent
   const rpcUserAgent = crypto.randomBytes(100).toString('hex');
@@ -118,7 +125,7 @@ function createWindow() {
   {
     fs.writeFileSync(DATABASE_FILE, DATABASE);
   }
-  
+
   // delete any xcash rpc log
   if (fs.existsSync(WALLET_RPC_LOG))
   {
