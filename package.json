@@ -6,6 +6,7 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
+    "serve": "tsc main.ts && ng build --watch --base-href ./ && electron --enable-logging .",
     "start": "tsc main.ts && ng build --base-href ./ && electron --enable-logging .",
     "build": "tsc main.ts && ng build --prod --aot --base-href ./ && electron .",
     "test": "ng test",
@@ -124,6 +125,8 @@
     "electron": "^11.2.1",
     "electron-installer-dmg": "^3.0.0",
     "electron-packager": "^15.2.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-reloader": "^1.2.1",
     "electron-winstaller": "^4.0.0",
     "eslint": "^7.20.0",
     "html-webpack-plugin": "^4.5.1",
