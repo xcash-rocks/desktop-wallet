@@ -26,12 +26,13 @@ export interface Navigation extends NavigationItem {
 }
 
 const NAVIGATION_ITEMS = [
-  {
-    id: 'overview',
-    title: 'Overview',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
+  // {
+  //   id: 'overview',
+  //   title: '',
+  //   type: 'group',
+  //   icon: 'feather icon-home',
+  // },
+  //children: [
       {
         id: 'wallet_home',
         title: 'Wallet',
@@ -64,8 +65,7 @@ const NAVIGATION_ITEMS = [
         classes: 'nav-item',
         icon: 'feather icon-users'
       }*/
-    ]
-  }
+    //]}
 ];
 
 @Injectable()

@@ -1,6 +1,7 @@
 <perfect-scrollbar *ngIf="this.dattaConfig['layout'] === 'vertical'" [exclude]="'#mobile-collapse1'" (clickOutside)="navMob()" id="nav-ps-datta" ngClass="datta-scroll" [style.max-width]="'300px'" [style.max-height]="'calc(100vh - 70px)'" [usePSClass]="'datta'" [disabled]="null" [autoPropagation] ="true">
   <div class="navbar-content">
     <ul class="nav pcoded-inner-navbar" (clickOutside)="fireOutClick()" (mouseleave)="navMob()">
+      <li  class="nav-item pcoded-hasmenu" ><span class="b-title" style="font-weight:bold">X-Cash</span></li>
       <ng-container *ngFor="let item of navigation">
         <app-nav-group *ngIf="item.type=='group'" [item]="item"></app-nav-group>
         <app-nav-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-collapse>
