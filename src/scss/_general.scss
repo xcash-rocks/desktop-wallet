@@ -14,6 +14,7 @@ body {
 }
 
 a {
+    color:  $primary-color;
     &:hover {
         outline: none;
         text-decoration: none;

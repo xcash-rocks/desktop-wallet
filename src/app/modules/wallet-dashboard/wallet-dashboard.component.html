@@ -5,20 +5,20 @@
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div>
-            <h3>Total Balance</h3>
+            <h3>Wallets</h3>
           </div>
-          
+
           <div>
-            <button type="button" class="btn btn-primary btn-lg mb-0" (click)="createWalletModal.show();"><em class="feather icon-plus-circle"></em>Create Wallet</button>
-            <button type="button" class="btn btn-secondary btn-lg m-0" (click)="importWalletModal.show();"><em class="feather icon-download"></em>Import Wallet</button>
+            <button type="button" class="btn btn-primary btn-md mb-0" (click)="createWalletModal.show();"><em class="feather icon-plus-circle"></em>Create Wallet</button>
+            <button type="button" class="btn btn-secondary btn-md m-0" (click)="importWalletModal.show();"><em class="feather icon-download"></em>Import Wallet</button>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
   </div>
-  
+
   <!-- Wallet cards -->
-  <div *ngFor="let wallet of walletList$ | async" class="col-lg-4 col-md-6">
+  <div *ngFor="let wallet of walletList$ | async" class="col-sm-12">
     <div class="card">
       <div class="card-header">
         <h4><a (click)="RpcCallsService.currentWalletName = wallet.name" [routerLink]="['./wallet']" [state]="{walletId: wallet.id}">{{ wallet.name }}</a></h4>
@@ -35,11 +35,12 @@
         </div>
       </div>
       <a (click)="RpcCallsService.currentWalletName = wallet.name" [routerLink]="['./wallet']" [state]="{walletId: wallet.id}" class="card-body">
-        
-        <h5>{{ wallet.publicKey | xcashPublicAddress:10 }}</h5>
+        <h5>Address:</h5>
+        <h6>{{ wallet.publicKey  | xcashPublicAddress:20 }}</h6>
+        <h5>Balance:</h5>
         <h5>{{ wallet.balance | xcash}}</h5>
         <small id="amount-help" class="form-text text-muted">Amount (since last refresh).</small>
-        
+
       </a>
     </div>
   </div>
