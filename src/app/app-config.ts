@@ -8,10 +8,10 @@ export class DattaConfig {
     'header-back-color': 'header-dark', // header-default, header-blue, header-red, header-purple, header-lightblue, header-dark
     'nav-back-color': 'navbar-dark', // navbar-default, navbar-blue, navbar-red, navbar-purple, navbar-lightblue, navbar-dark
     'nav-brand-color': 'brand-red', // brand-default, brand-blue, brand-red, brand-purple, brand-lightblue, brand-dark
-    'nav-back-image': false, // false, navbar-image-1, navbar-image-2, navbar-image-3, navbar-image-4, navbar-image-5
+    'nav-back-image': 'navbar-image-1', // false, navbar-image-1, navbar-image-2, navbar-image-3, navbar-image-4, navbar-image-5
     'rtl-layout': false,
     'nav-fixed-layout': true,
-    'header-fixed-layout': false,
+    'header-fixed-layout': true,
     'box-layout': false,
     'nav-dropdown-icon': 'style1', // style1, style2, style3
     'nav-list-icon': 'style1', // style1, style2, style3, style4, style5, style6
