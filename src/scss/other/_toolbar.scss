@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:list";
+@use "../variables";
+
 /**  =====================
       Toolbar css start
 ==========================  **/
@@ -31,39 +35,39 @@
     }
 }
 $toolbar-name: primary, warning, light, danger, success, dark, info;
-$toolbar-color: $primary-color, $warning-color, $default-color, $danger-color, $success-color, $inverse-color, $info-color;
+$toolbar-color: variables.$primary-color, variables.$warning-color, variables.$default-color, variables.$danger-color, variables.$success-color, variables.$inverse-color, variables.$info-color;
 @each $var in $toolbar-name {
-    $i: index($toolbar-name, $var);
+    $i: list.index($toolbar-name, $var);
 
     .toolbar-#{$var} {
         .tool-item {
-            background: nth($toolbar-color, $i);
+            background: list.nth($toolbar-color, $i);
 
             &.selected,
             &:hover {
-                background: darken(nth($toolbar-color, $i), 10%);
+                background: color.adjust(list.nth($toolbar-color, $i), $lightness: -10%);
             }
         }
 
         &.tool-top .arrow {
-            border-color: nth($toolbar-color, $i) transparent transparent;
+            border-color: list.nth($toolbar-color, $i) transparent transparent;
         }
 
         &.tool-bottom .arrow {
-            border-color: transparent transparent nth($toolbar-color, $i);
+            border-color: transparent transparent list.nth($toolbar-color, $i);
         }
 
         &.tool-left .arrow {
-            border-color: transparent transparent transparent nth($toolbar-color, $i);
+            border-color: transparent transparent transparent list.nth($toolbar-color, $i);
         }
 
         &.tool-right .arrow {
-            border-color: transparent nth($toolbar-color, $i) transparent transparent;
+            border-color: transparent list.nth($toolbar-color, $i) transparent transparent;
         }
     }
 
     .btn-toolbar-#{$var}.pressed {
-        background-color: nth($toolbar-color, $i);
+        background-color: list.nth($toolbar-color, $i);
     }
 }
 /**====== Toolbar css end ======**/

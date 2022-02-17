@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:list";
+@use "../variables";
+
 /**  =====================
       wizard css start
 ==========================  **/
@@ -26,13 +30,13 @@
         cursor: pointer;
         font-weight: 500;
     }
-    @each $value in $color-bt-name {
-        $i: index($color-bt-name, $value);
+    @each $value in variables.$color-bt-name {
+        $i: list.index(variables.$color-bt-name, $value);
 
         &[data-color="wizard-#{$value}"] {
             .moving-tab {
-                background-color: nth($color-bt-color,$i);
-                box-shadow: 0 16px 26px -10px transparentize(nth($color-bt-color,$i), 0.44), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px transparentize(nth($color-bt-color,$i), 0.8);
+                background-color: list.nth(variables.$color-bt-color,$i);
+                box-shadow: 0 16px 26px -10px color.adjust(list.nth(variables.$color-bt-color,$i), $alpha: -0.44), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px color.adjust(list.nth(variables.$color-bt-color,$i), $alpha: -0.8);
             }
         }
     }
@@ -102,7 +106,7 @@
         a,
         a > h6,
         a:hover {
-            color: $theme-border;
+            color: variables.$theme-border;
         }
 
         &.done {
@@ -114,16 +118,16 @@
         &.active {
             a,
             a h6 {
-                color: $primary-color;
+                color: variables.$primary-color;
             }
         }
 
         > a.nav-link:after {
-            background: $primary-color;
+            background: variables.$primary-color;
         }
 
         &.done > a.nav-link:after {
-            background: $theme-border;
+            background: variables.$theme-border;
         }
     }
 

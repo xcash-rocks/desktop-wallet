@@ -1,3 +1,5 @@
+@import 'variables';
+
 .#{$fa-css-prefix}.#{$fa-css-prefix}-glass:before { content: fa-content($fa-var-glass-martini); }
 
 .#{$fa-css-prefix}.#{$fa-css-prefix}-meetup {
@@ -2063,4 +2065,3 @@
   font-family: 'Font Awesome 5 Brands',Serif;
   font-weight: 400;
 }
-

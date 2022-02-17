@@ -2,6 +2,8 @@
       Generic-class css start
 ========================== **/
 /*====== Padding , Margin css starts ======*/
+@import 'variables';
+
 $i: 0;
 @while $i<=50 {
     .p {

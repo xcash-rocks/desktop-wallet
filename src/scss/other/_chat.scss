@@ -1,6 +1,8 @@
 /**  =====================
       Chatting css start
 ==========================  **/
+@use "sass:color";
+@use '../variables';
 
 .header-chat,
 .header-user-list {
@@ -46,7 +48,7 @@
                 left: 73px;
                 font-size: 25px;
                 z-index: 1003;
-                color: $success-color;
+                color: variables.$success-color;
             }
 
             &:after {
@@ -65,7 +67,7 @@
 
         &.msg-open {
             &:after {
-                color: transparentize($primary-color,0.9);
+                color: color.adjust(variables.$primary-color,$alpha: -0.9);
             }
         }
     }
@@ -104,7 +106,7 @@
         }
 
         &.active {
-            background: lighten($primary-color,45%);
+            background: color.adjust(variables.$primary-color,$lightness: 45%);
         }
 
         .media-left {
@@ -137,7 +139,7 @@
             color: #fff;
             padding: 2px 0;
             text-align: center;
-            background: $theme-color;
+            background: variables.$theme-color;
         }
     }
 }
@@ -170,7 +172,7 @@
 
     .h-list-body {
         height: 100%;
-        background: lighten($primary-color,45%);
+        background: color.adjust(variables.$primary-color,$lightness: 45%);
     }
 
     .h-list-footer {
@@ -180,7 +182,7 @@
         right: 0;
         padding: 20px 15px;
         z-index: 10;
-        background: lighten($primary-color,45%);
+        background: color.adjust(variables.$primary-color,$lightness: 45%);
 
         .input-group {
             background: #fff;
@@ -332,7 +334,7 @@
         .chat-menu-content {
             > div {
                 p {
-                    background: $theme-color;
+                    background: variables.$theme-color;
                     color: #fff;
                     border-radius: 4px;
                     margin-bottom: 4px;
@@ -373,7 +375,7 @@
     }
 
     .msg-user-chat {
-        background: lighten($primary-color,45%);
+        background: color.adjust(variables.$primary-color,$lightness: 45%);
         height: calc(100vh - 330px);
         padding-top: 25px;
         padding-bottom: 25px;

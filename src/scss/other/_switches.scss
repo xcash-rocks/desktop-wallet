@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../variables";
+
 /**  =====================
       Switches css start
 ==========================  **/
@@ -47,7 +50,7 @@
 
         &:checked + .cr {
             &:before {
-                background: $theme-color;
+                background: variables.$theme-color;
                 transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
             }
 
@@ -62,16 +65,16 @@
             cursor: not-allowed;
         }
     }
-    @each $value in $color-bt-name {
-        $i: index($color-bt-name, $value);
+    @each $value in variables.$color-bt-name {
+        $i: list.index(variables.$color-bt-name, $value);
 
         &.switch-#{$value} input[type=checkbox]:checked + .cr:before {
-            background: nth($color-bt-color,$i);
+            background: list.nth(variables.$color-bt-color,$i);
         }
     }
 
     &.switch-alternative input[type=checkbox]:checked + .cr:before {
-        background: $theme-color2;
+        background: variables.$theme-color2;
     }
 }
 /**====== Switches css end ======**/

@@ -1,16 +1,18 @@
+@use "sass:meta";
+
 @import "~fullcalendar/dist/fullcalendar.min.css";
 @import "~ng2-toasty/style-default.css";
 @import "~ng2-toasty/style-bootstrap.css";
 @import "~ng2-toasty/style-material.css";
 
-@import "ngx-perfect-scrollbar";
-@import "css-animator";
-@import "angular-morris-js";
-@import "angular-pell";
-@import "ks-modal-gallery";
-@import "angular-6-datatable";
-@import "angular-datatables";
-@import "ngx-chips";
-@import "ng2-archwizard";
-@import "ng-select";
-@import "ng-fullcalendar";
+@include meta.load-css("ngx-perfect-scrollbar");
+@include meta.load-css("css-animator");
+@include meta.load-css("angular-morris-js");
+@include meta.load-css("angular-pell");
+@include meta.load-css("ks-modal-gallery");
+@include meta.load-css("angular-6-datatable");
+@include meta.load-css("angular-datatables");
+@include meta.load-css("ngx-chips");
+@include meta.load-css("ng2-archwizard");
+@include meta.load-css("ng-select");
+@include meta.load-css("ng-fullcalendar");

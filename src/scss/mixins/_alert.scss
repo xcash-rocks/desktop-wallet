@@ -1,4 +1,6 @@
 @use "sass:color";
+@use '../variables';
+
 @mixin alert-variant($background, $border, $color) {
     color: $color;
     border-color: $border;

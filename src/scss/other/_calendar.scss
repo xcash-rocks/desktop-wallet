@@ -1,3 +1,5 @@
+@use "../variables";
+
 /**  =====================
       Calendar css start
 ==========================  **/
@@ -8,8 +10,8 @@
         cursor: move;
         padding: 5px 18px;
         margin-top: 5px;
-        background: $primary-color;
-        border-color: $primary-color;
+        background: variables.$primary-color;
+        border-color: variables.$primary-color;
     }
 }
 
@@ -28,8 +30,8 @@
         cursor: move;
         padding: 5px 18px;
         margin-top: 2px;
-        background: $primary-color;
-        border-color: $primary-color;
+        background: variables.$primary-color;
+        border-color: variables.$primary-color;
     }
 }
 /**====== Calendar css end ======**/

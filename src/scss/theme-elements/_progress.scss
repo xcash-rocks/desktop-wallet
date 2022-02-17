@@ -2,6 +2,8 @@
 /**  =====================
       Progress css start
 ==========================  **/
+@import '../variables';
+
 @keyframes progress-bar-stripes {
     from {
         background-position: 16px 0;

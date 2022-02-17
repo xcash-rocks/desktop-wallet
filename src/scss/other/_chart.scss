@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "../variables";
+
 /**  =====================
       Chart css start
 ==========================  **/
@@ -70,24 +73,24 @@ $flg: 1;
     @while $dt<=100 {
         &.radial-bar-#{$dt} {
             @if($dt < 50) {
-                background-image: linear-gradient(90deg, #d6d6d6 50%, transparent 50%, transparent), linear-gradient(#{nth($unhalf, $flg)}deg, $success-color 50%, #d6d6d6 50%, #d6d6d6);
+                background-image: linear-gradient(90deg, #d6d6d6 50%, transparent 50%, transparent), linear-gradient(#{list.nth($unhalf, $flg)}deg, variables.$success-color 50%, #d6d6d6 50%, #d6d6d6);
             } @else {
-                background-image: linear-gradient(#{nth($unhalf, $flg)}deg, $success-color 50%, transparent 50%, transparent), linear-gradient(270deg, $success-color 50%, #d6d6d6 50%, #d6d6d6);
+                background-image: linear-gradient(#{list.nth($unhalf, $flg)}deg, variables.$success-color 50%, transparent 50%, transparent), linear-gradient(270deg, variables.$success-color 50%, #d6d6d6 50%, #d6d6d6);
             }
         }
         $dt: $dt+5;
         $flg: $flg+1;
     }
-    @each $value in $color-bt-name {
-        $i: index($color-bt-name, $value);
+    @each $value in variables.$color-bt-name {
+        $i: list.index(variables.$color-bt-name, $value);
 
         &.radial-bar-#{$value} {
             @while $dt<=100 {
                 &.radial-bar-#{$dt} {
                     @if($dt < 50) {
-                        background-image: linear-gradient(90deg, #d6d6d6 50%, transparent 50%, transparent), linear-gradient(#{nth($unhalf, $flg)}deg, nth($color-bt-color,$i) 50%, #d6d6d6 50%, #d6d6d6);
+                        background-image: linear-gradient(90deg, #d6d6d6 50%, transparent 50%, transparent), linear-gradient(#{list.nth($unhalf, $flg)}deg, list.nth(variables.$color-bt-color,$i) 50%, #d6d6d6 50%, #d6d6d6);
                     } @else {
-                        background-image: linear-gradient(#{nth($unhalf, $flg)}deg, nth($color-bt-color,$i) 50%, transparent 50%, transparent), linear-gradient(270deg, nth($color-bt-color,$i) 50%, #d6d6d6 50%, #d6d6d6);
+                        background-image: linear-gradient(#{list.nth($unhalf, $flg)}deg, list.nth(variables.$color-bt-color,$i) 50%, transparent 50%, transparent), linear-gradient(270deg, list.nth(variables.$color-bt-color,$i) 50%, #d6d6d6 50%, #d6d6d6);
                     }
                 }
                 $dt: $dt+5;

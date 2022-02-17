@@ -1,6 +1,10 @@
 // Base Class Definition
 // -------------------------
 
+@use 'mixins';
+@import 'variables';
+
+
 .#{$fa-css-prefix},
 .fas,
 .far,
@@ -16,5 +20,6 @@
 }
 
 %fa-icon {
-  @include fa-icon;
+  //@include 'fa-icon';
+  @include mixins.fa-icon;
 }

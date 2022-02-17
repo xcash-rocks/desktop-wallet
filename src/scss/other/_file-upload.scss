@@ -1,3 +1,5 @@
+@use "../variables";
+
 /**  =====================
       File Upload css start
 ==========================  **/
@@ -263,8 +265,8 @@
             top: 130px;
             left: -10px;
             width: 140px;
-            background: $danger-color;
-            background: linear-gradient(to bottom, $danger-color, $danger-color);
+            background: variables.$danger-color;
+            background: linear-gradient(to bottom, variables.$danger-color, variables.$danger-color);
             padding: 0.5em 1.2em;
             color: white;
 
@@ -277,7 +279,7 @@
                 height: 0;
                 border-left: 6px solid transparent;
                 border-right: 6px solid transparent;
-                border-bottom: 6px solid $danger-color;
+                border-bottom: 6px solid variables.$danger-color;
             }
         }
     }
