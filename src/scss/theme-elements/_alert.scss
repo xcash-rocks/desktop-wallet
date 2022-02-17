@@ -1,4 +1,4 @@
-@import "../mixins/alert"; /**  =====================
+@use "../mixins/alert"; /**  =====================
       Alert css start
 ==========================  **/
 //
@@ -28,7 +28,7 @@
 // Generate contextual modifier classes for colorizing the alert.
 @each $color, $value in $theme-colors {
     .alert-#{$color} {
-        @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+        @include alert.alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
     }
 }
 /**====== Alert css end ======**/

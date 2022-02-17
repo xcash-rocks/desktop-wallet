@@ -1,34 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "scss/variables";
+@use "sass:meta";
+@use "scss/variables";
 
 /* Angular material theme */
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 /* fonts-icon */
-@import "scss/fonts/fontawesome/scss/fontawesome";
-@import "scss/fonts/feather/iconfont";
+@include meta.load-css("scss/fonts/fontawesome/scss/fontawesome");
+@include meta.load-css("scss/fonts/feather/iconfont");
 
 @import url("scss/fonts/datta/datta-icons.css"); /** custom font icons - datta **/
-@import "scss/general";
-@import "scss/generic";
-@import "scss/mixins/function";
+@include meta.load-css("scss/general");
+@include meta.load-css("scss/generic");
+@include meta.load-css("scss/mixins/function");
 
 /* important element */
-@import "scss/menu/menu-lite";
-@import "scss/widget/widget";
+@include meta.load-css("scss/menu/menu-lite");
+@include meta.load-css("scss/widget/widget");
 
 /* basic elements */
-@import "scss/theme-elements/theme-elements";
+@include meta.load-css("scss/theme-elements/theme-elements");
 
 /* advance-other elements */
-@import "scss/other/other";
+@include meta.load-css("scss/other/other");
 
 /* third party modules style*/
-@import "scss/plugins/plugins";
+@include meta.load-css("scss/plugins/plugins");
 
-@import "scss/layout/layout";
-@import "scss/custom";
+@include meta.load-css("scss/layout/layout");
+@include meta.load-css("scss/custom");
 
 // Angular automatically add this
 //html, body { height: 100%; }

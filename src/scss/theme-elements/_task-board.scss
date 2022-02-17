@@ -31,8 +31,8 @@ $card-cap-bg:              white !default;
   padding: $spacer;
   .taskboard-wrapper {
     width: 280px;
-    padding-right: ($spacer / 2);
-    padding-left: ($spacer / 2);
+    padding-right: ($spacer * 0.5);
+    padding-left: ($spacer * 0.5);
     box-sizing: border-box;
     display: inline-block;
     vertical-align: top;
@@ -63,7 +63,7 @@ $card-cap-bg:              white !default;
     letter-spacing: 0.02rem;
     font-size: 18px;
     font-weight: 700;
-    padding: ($spacer/2) ($spacer/2) 0;
+    padding: ($spacer*0.5) ($spacer*0.5) 0;
   }
   .taskboard-task {
     position: relative;
@@ -72,8 +72,8 @@ $card-cap-bg:              white !default;
 
     border: $card-border-width solid $card-border-color;
     @include border-radius($card-border-radius);
-    padding: ($spacer/2);
-    margin-bottom: ($spacer/2);
+    padding: ($spacer*0.5);
+    margin-bottom: ($spacer*0.5);
 
     color: #fff;
     font-weight: 900;
@@ -116,12 +116,12 @@ $card-cap-bg:              white !default;
     border-left-color: $danger-color;
   }
   .taskboard-cards {
-    padding: ($spacer/2);
+    padding: ($spacer*0.5);
     box-sizing: border-box;
     /*overflow-x: hidden;
     overflow-y: auto;*/
   }
   .taskboard-task-title {
-    margin-bottom: ($spacer/2);
+    margin-bottom: ($spacer*0.5);
   }
 }

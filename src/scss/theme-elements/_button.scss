@@ -1,4 +1,4 @@
-@import "../mixins/buttons";
+@use "../mixins/buttons";
 /**  =====================
       Button css start
 ==========================  **/
@@ -177,19 +177,19 @@ a.btn-theme {
 // Alternate buttons
 @each $color, $value in $theme-colors {
     .btn-#{$color} {
-        @include button-variant($value, $value);
+        @include buttons.button-variant($value, $value);
     }
 }
 // outline buttons
 @each $color, $value in $theme-colors {
     .btn-outline-#{$color} {
-        @include button-outline-variant($value);
+        @include buttons.button-outline-variant($value);
     }
 }
 // glow buttons
 @each $color, $value in $theme-colors {
     .btn-glow-#{$color} {
-        @include button-glow-variant($value);
+        @include buttons.button-glow-variant($value);
     }
 }
 /**====== Button css end ======**/

@@ -1,8 +1,9 @@
+@use "sass:color";
 // Button variants
 //
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
-@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+@mixin button-variant($background, $border, $hover-background: color.adjust($background, $lightness: -7.5%), $hover-border: color.adjust($border, $lightness: -10%), $active-background: color.adjust($background, $lightness: -10%), $active-border: color.adjust($border, $lightness: -12.5%)) {
     color: color-yiq($background);
     background-color: $border;
     border-color: $border;
@@ -67,9 +68,9 @@
 @mixin button-glow-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
     // box-shadow: 0 1px 20px 1px transparentize($color,0.4);
     // box-shadow: 0 16px 26px -10px transparentize($color,0.44),0 8px 10px -5px transparentize($color,0.8);
-    box-shadow: 0 1px 6px 2px transparentize($color,0.44), 0 6px 11px 2px transparentize($color,0.8);
+    box-shadow: 0 1px 6px 2px color.adjust($color,$alpha: -0.44), 0 6px 11px 2px color.adjust($color,$alpha: -0.8);
     &:hover{
-        box-shadow: 0 1px 4px 2px transparentize($color,0.44), 0 4px 9px 2px transparentize($color,0.9);
+        box-shadow: 0 1px 4px 2px color.adjust($color,$alpha: -0.44), 0 4px 9px 2px color.adjust($color,$alpha: -0.9);
     }
     &:not(:disabled):not(.disabled).active,
     &:not(:disabled):not(.disabled):active:focus,
