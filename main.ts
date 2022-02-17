@@ -95,10 +95,15 @@ function createWindow() {
   }
 
   // Create the browser window.
-  mainWindow = new BrowserWindow({ webPreferences: {nodeIntegration: true}, icon: path.join(__dirname, '/src/favicon.ico') });
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {nodeIntegration: true},
+    icon: path.join(__dirname, '/src/favicon.ico')
+  });
 
   // make the window full screen
-  mainWindow.maximize();
+  //mainWindow.maximize();
 
   // create and set the user agent
   const rpcUserAgent = crypto.randomBytes(100).toString('hex');
@@ -118,7 +123,7 @@ function createWindow() {
   {
     fs.writeFileSync(DATABASE_FILE, DATABASE);
   }
-  
+
   // delete any xcash rpc log
   if (fs.existsSync(WALLET_RPC_LOG))
   {
