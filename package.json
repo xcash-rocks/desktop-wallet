@@ -125,6 +125,7 @@
     "electron": "^17.0.1",
     "electron-installer-dmg": "^3.0.0",
     "electron-packager": "^15.4.0",
+    "electron-reload": "^2.0.0-alpha.1",
     "electron-winstaller": "^5.0.0",
     "eslint": "^8.9.0",
     "html-webpack-plugin": "^5.5.0",
