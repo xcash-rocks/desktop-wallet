@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { SharedModule} from '../../theme/shared/shared.module';
-import { NgbTabsetModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbNavModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ContactsTableComponent } from './contacts-table/contacts-table.component';
 
@@ -25,7 +25,7 @@ import { SharedPipesModule } from 'src/app/shared/shared-pipes/shared-pipes.modu
     CommonModule,
     ContactsRoutingModule,
     SharedModule,
-    NgbTabsetModule,
+    NgbNavModule,
     DataTablesModule,
     FormsModule,
     NgbTooltipModule,
@@ -36,7 +36,7 @@ import { SharedPipesModule } from 'src/app/shared/shared-pipes/shared-pipes.modu
     MatInputModule,
     MatPaginatorModule,
     SharedPipesModule,
-    
+
   ]
 })
 export class ContactsModule { }

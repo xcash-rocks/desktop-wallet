@@ -17,7 +17,7 @@ import { NavCollapseComponent } from './theme/layout/admin/navigation/nav-conten
 import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/nav-item/nav-item.component';
 import { NavBarComponent } from './theme/layout/admin/nav-bar/nav-bar.component';
 import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
-import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbButtonsModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavLeftComponent } from './theme/layout/admin/nav-bar/nav-left/nav-left.component';
 import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-right.component';
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
@@ -62,7 +62,7 @@ import { XcashPriceIndexService } from './services/xcash-price-index.service';
     NgbDropdownModule,
     NgbTooltipModule,
     NgbButtonsModule,
-    NgbTabsetModule,
+    NgbNavModule,
     MaterialModule,
     WalletDashboardModule,
     AuthModule,

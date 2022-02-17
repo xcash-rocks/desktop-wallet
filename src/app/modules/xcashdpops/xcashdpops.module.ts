@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { XcashdpopsRoutingModule } from './xcashdpops-routing.module';
 import { SharedModule} from '../../theme/shared/shared.module';
-import { NgbTabsetModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbNavModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {DataTablesModule} from 'angular-datatables';
 import {FormsModule} from '@angular/forms';
@@ -26,7 +26,7 @@ import { SharedPipesModule } from 'src/app/shared/shared-pipes/shared-pipes.modu
     CommonModule,
     XcashdpopsRoutingModule,
     SharedModule,
-    NgbTabsetModule,
+    NgbNavModule,
     DataTablesModule,
     FormsModule,
     NgbTooltipModule,
@@ -37,7 +37,7 @@ import { SharedPipesModule } from 'src/app/shared/shared-pipes/shared-pipes.modu
     MatInputModule,
     MatPaginatorModule,
     SharedPipesModule,
-    
+
   ]
 })
 export class XcashdpopsModule { }

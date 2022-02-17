@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {SharedModule} from '../../theme/shared/shared.module';
-import {NgbProgressbarModule, NgbDropdownModule, NgbTabsetModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbProgressbarModule, NgbDropdownModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { WalletDashboardComponent } from './wallet-dashboard.component';
 
@@ -16,9 +16,9 @@ import { WalletNamePasswordModalComponent } from './wallet-name-password-modal/w
 
 @NgModule({
   declarations: [
-    WalletDashboardComponent, 
-    CreateWalletModalComponent, 
-    ImportWalletModalComponent, 
+    WalletDashboardComponent,
+    CreateWalletModalComponent,
+    ImportWalletModalComponent,
     WalletNamePasswordModalComponent,
   ],
   imports: [
@@ -27,7 +27,7 @@ import { WalletNamePasswordModalComponent } from './wallet-name-password-modal/w
     SharedModule,
     NgbProgressbarModule,
     NgbDropdownModule,
-    NgbTabsetModule,
+    NgbNavModule,
     SharedWalletModalModule,
     ClipboardModule,
     SharedPipesModule,
