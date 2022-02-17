@@ -6,8 +6,8 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: './auth/auth.module#AuthModule'
-  }, 
+    loadChildren:  () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
   {
     path: '',
     component: AdminComponent,
@@ -21,26 +21,26 @@ const routes: Routes = [
       },
       {
         path: 'wallet-dashboard',
-        loadChildren: './modules/wallet-dashboard/wallet-dashboard.module#WalletDashboardModule'
+        loadChildren:  () => import('./modules/wallet-dashboard/wallet-dashboard.module').then(m => m.WalletDashboardModule)
       },
       {
         path: 'contacts',
 
-        loadChildren: './modules/contacts/contacts.module#ContactsModule'
+        loadChildren:  () => import('./modules/contacts/contacts.module').then(m => m.ContactsModule)
       },
       {
         path: 'settings',
 
-        loadChildren: './modules/settings/settings.module#SettingsModule'
+        loadChildren:  () => import('./modules/settings/settings.module').then(m => m.SettingsModule)
       },
       {
         path: 'xcashdpops',
 
-        loadChildren: './modules/xcashdpops/xcashdpops.module#XcashdpopsModule'
+        loadChildren:  () => import('./modules/xcashdpops/xcashdpops.module').then(m => m.XcashdpopsModule)
       },
-      
+
     ]
-  }, 
+  },
   {
     path: '**',
     redirectTo: '',
