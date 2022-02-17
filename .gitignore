@@ -8,4 +8,5 @@ useragent.txt
 database.txt
 xcash-wallet-rpc.log
 release-builds/
-
+.angular
+.browserslistrc
