@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class XcashPriceIndexService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { };
 
   reqOptions = {
     headers: {
@@ -26,8 +27,8 @@ export class XcashPriceIndexService {
    * @return an `Observable` every 5min
    */
   getPrice(): Observable<object> {
-    return Observable.timer(0, 5 * 60 * 1000).flatMap(() => {
+    return timer(0, 5 * 60 * 1000).pipe(mergeMap(() => {
       return this.http.get(this.reqUrl, this.reqOptions)
-    });
+    }));
   }
 }
