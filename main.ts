@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, screen } from 'electron';
 import * as path from "path";
 import * as AdmZip from 'adm-zip';
 import axios from 'axios';
@@ -6,10 +6,18 @@ import { exec } from 'child_process'
 import * as fs from 'fs';
 import * as crypto from "crypto";
 import * as setupEvents from './installers/setupEvents'
+import * as url from 'url';
 
-let mainWindow: Electron.BrowserWindow;
+//let mainWindow: Electron.BrowserWindow;
+let mainWindow: BrowserWindow = null;
 
-function createWindow() {
+// needed for hotreload with electro-reload
+const args = process.argv.slice(1),
+  serve = args.some(val => val === '--serve');
+
+
+function createWindow(): BrowserWindow  {
+
   if (setupEvents.handleSquirrelEvent()) {
     // squirrel event handled and app will exit in 1000ms, so don't do anything else
     return;
@@ -98,7 +106,11 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    webPreferences: {nodeIntegration: true},
+    webPreferences: {
+      nodeIntegration: true,
+      allowRunningInsecureContent: true, //(serve) ? true : false,
+      contextIsolation: false,  // false if you want to run e2e test with Spectron
+    },
     icon: path.join(__dirname, '/src/favicon.ico')
   });
 
@@ -110,13 +122,44 @@ function createWindow() {
   fs.writeFileSync(RPC_FILE, rpcUserAgent);
   mainWindow.webContents.userAgent = rpcUserAgent;
 
-  // load the dist folder from Angular
-  mainWindow.loadFile(path.join(__dirname, "/dist/index.html"));
+  // dev mode for debugging
+  if (serve) {
+    // load the dev tools for debugging
+    mainWindow.webContents.openDevTools();
 
+    require('electron-reload')(__dirname, {
+      electron: require(path.join(__dirname, '/../node_modules/electron'))
+    });
+
+    mainWindow.loadURL('http://localhost:4200');
+
+  } else {
+
+    //mainWindow.loadFile(path.join(__dirname, "/dist/index.html"));
+
+    // load the dist folder from Angular
+    let pathIndex = '/dist/index.html';
+
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, pathIndex),
+      protocol: 'file:',
+      slashes: true
+    }));
+
+  }
   // load the dev tools for debugging
   //mainWindow.webContents.openDevTools();
 
-  mainWindow.on("closed", () => mainWindow = null);
+  //mainWindow.on("closed", () => mainWindow = null);
+
+  // Emitted when the window is closed.
+  mainWindow.on('closed', () => {
+    // Dereference the window object, usually you would store window
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null;
+  });
+
 
   // check if the start DB is created
   if (!fs.existsSync(DATABASE_FILE))
@@ -129,25 +172,32 @@ function createWindow() {
   {
     fs.unlinkSync(WALLET_RPC_LOG);
   }
+
+  return mainWindow;
 }
 
-app.on("ready", createWindow);
+try {
+  app.on('ready', () => setTimeout(createWindow, 400));
 
-// Quit when all windows are closed.
-app.on("window-all-closed", () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== "darwin") {
-    // close the xcash-wallet-rpc
-    process.platform === "win32" ? exec("taskkill /f /im xcash-wallet-rpc*") : exec("killall -9 'xcash-wallet-rpc'");
-    app.quit();
-  }
-});
+  // Quit when all windows are closed.
+  app.on("window-all-closed", () => {
+    // On OS X it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+    if (process.platform !== "darwin") {
+      // close the xcash-wallet-rpc
+      process.platform === "win32" ? exec("taskkill /f /im xcash-wallet-rpc*") : exec("killall -9 'xcash-wallet-rpc'");
+      app.quit();
+    }
+  });
 
-app.on("activate", () => {
-  // On OS X it"s common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
-    createWindow();
-  }
-});
+  app.on("activate", () => {
+    // On OS X it"s common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (mainWindow === null) {
+      createWindow();
+    }
+  });
+} catch (e) {
+  // Catch Error
+  // throw e;
+}
