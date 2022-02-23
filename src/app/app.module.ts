@@ -21,7 +21,6 @@ import { NgbButtonsModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule } f
 import { NavLeftComponent } from './theme/layout/admin/nav-bar/nav-left/nav-left.component';
 import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-right.component';
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
-import { oldService } from './services/oldService.service';
 import { DatabaseService } from './services/database.service';
 import { WalletDashboardModule } from './modules/wallet-dashboard/wallet-dashboard.module';
 import { MaterialModule } from './material.module';
@@ -78,7 +77,6 @@ import { XcashPriceIndexService } from './services/xcash-price-index.service';
     ValidatorsRegexService,
     WalletListService,
     XcashPriceIndexService,
-    oldService
   ],
   bootstrap: [AppComponent]
 })
